@@ -13,13 +13,15 @@ let servers = ["n00dles", "nectar-net", "CSEC", "foodnstuff", "sigma-cosmetics",
     "applied-energetics", "stormtech", ".", "helios", "run4theh111z", "millenium-fitness",
     "iron-gym", "darkweb"];
 
-let targets = [];
-let bots = [];
-
-let ports = 0;
-
 /** @param {NS} ns **/
 export async function main(ns) {
+
+    let bots = [];
+
+    let ports = 0;
+    
+    let serverWithMostMoney = "n00dles";
+
     if (ns.fileExists("brutessh.exe", "home")) {
         ports++;
     }
@@ -59,8 +61,8 @@ export async function main(ns) {
             } else if (!ns.hasRootAccess(servers[i])) {
                 continue;
             }
-            if (ns.getServerMaxMoney(servers[i]) > 1000000000 && ns.getHackingLevel() > ns.getServerRequiredHackingLevel(servers[i])) {
-                targets.push(servers[i]);
+            if (ns.getServerMaxMoney(servers[i]) > ns.getServerMaxMoney(serverWithMostMoney) && ns.getHackingLevel() > ns.getServerRequiredHackingLevel(servers[i])) {
+                serverWithMostMoney = servers[i];
             }
             if (ns.getServerMaxRam(servers[i]) > ns.getScriptRam("hack.js", "home")) {
                 bots.push(servers[i]);
@@ -76,6 +78,6 @@ export async function main(ns) {
         ns.killall(allBots[i]);
         await ns.scp("hack.js", allBots[i]);
         // uses mod (%) operator to distribute different targets equally to the bots
-        ns.exec("hack.js", allBots[i], usableThreads, "b-and-a");
+        ns.exec("hack.js", allBots[i], usableThreads, serverWithMostMoney);
     }
 }
