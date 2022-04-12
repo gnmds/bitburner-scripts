@@ -77,7 +77,6 @@ export async function main(ns) {
         var usableThreads = ns.getServerMaxRam(allBots[i]) / ns.getScriptRam("hack.js", "home");
         ns.killall(allBots[i]);
         await ns.scp("hack.js", allBots[i]);
-        // uses mod (%) operator to distribute different targets equally to the bots
         ns.exec("hack.js", allBots[i], usableThreads, serverWithMostMoney);
     }
 }
