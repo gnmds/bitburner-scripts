@@ -11,9 +11,9 @@ let servers = ["n00dles", "nectar-net", "CSEC", "foodnstuff", "sigma-cosmetics",
     "microdyne", "fulcrumtech", "omnitek", "blade", "The-Cave",
     "nwo", "clarkinc", "megacorp", "kuai-gong", "powerhouse-fitness",
     "applied-energetics", "stormtech", ".", "helios", "run4theh111z", "millenium-fitness",
-    "iron-gym", "darkweb"];
+    "iron-gym", "darkweb", "w0r1d_d43m0n"];
 
-/** @param {NS} ns **/
+
 export async function main(ns) {
 
     let bots = [];
@@ -71,10 +71,11 @@ export async function main(ns) {
     }
 
     let allBots = bots.concat(ns.getPurchasedServers());
+    ns.tprint
 
     for (let i = 0; i < allBots.length; i++) {
         // calculates the usable threads for the hack.script
-        var usableThreads = ns.getServerMaxRam(allBots[i]) / ns.getScriptRam("hack.js", "home");
+        let usableThreads = ns.getServerMaxRam(allBots[i]) / ns.getScriptRam("hack.js", "home");
         ns.killall(allBots[i]);
         await ns.scp("hack.js", allBots[i]);
         ns.exec("hack.js", allBots[i], usableThreads, serverWithMostMoney);
