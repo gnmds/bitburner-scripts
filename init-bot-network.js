@@ -2,7 +2,7 @@ import * as lib from "lib.js"
 
 
 export async function main(ns) {
-    
+
     let servers = lib.returnAllServers(ns);
     let bots = [];
     let ports = 0;

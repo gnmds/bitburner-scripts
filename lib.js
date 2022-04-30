@@ -27,6 +27,6 @@ export function getServerWithMostMoney(ns) {
             serverWithMostMoney = servers[i];
         }
     }
-    
+
     return serverWithMostMoney;
 }

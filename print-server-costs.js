@@ -1,6 +1,6 @@
- 
+
 export async function main(ns) {
-    
+
     let servers = ns.getPurchasedServers();
 
     let currentRam = 0;
