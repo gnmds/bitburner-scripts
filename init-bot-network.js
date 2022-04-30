@@ -1,28 +1,11 @@
 import * as lib from "lib.js"
 
-let servers = ["n00dles", "nectar-net", "CSEC", "foodnstuff", "sigma-cosmetics",
-    "joesguns", "hong-fang-tea", "max-hardware", "omega-net", "harakiri-sushi",
-    "zer0", "neo-net", "silver-helix", "the-hub", "computek", "zb-institute",
-    "crush-fitness", "rothman-uni", "summit-uni", "I.I.I.I", "avmnite-02h",
-    "catalyst", "aevum-police", "snap-fitness", "unitalife", "univ-energy",
-    "phantasy", "netlink", "johnson-ortho", "syscore", "lexo-corp",
-    "aerocorp", "rho-construction", "alpha-ent", "galactic-cyber", "deltaone",
-    "solaris", "zb-def", "zeus-med", "global-pharm", "omnia", "defcomm",
-    "taiyang-digital", "titan-labs", "vitalife", "4sigma", "b-and-a",
-    "ecorp", "fulcrumassets", "nova-med", "icarus", "infocomm",
-    "microdyne", "fulcrumtech", "omnitek", "blade", "The-Cave",
-    "nwo", "clarkinc", "megacorp", "kuai-gong", "powerhouse-fitness",
-    "applied-energetics", "stormtech", ".", "helios", "run4theh111z", "millenium-fitness",
-    "iron-gym", "darkweb", "w0r1d_d43m0n"];
-
 
 export async function main(ns) {
-
-    let bots = [];
-
-    let ports = 0;
     
-    let serverWithMostMoney = "n00dles";
+    let servers = lib.returnAllServers(ns);
+    let bots = [];
+    let ports = 0;
 
     if (ns.fileExists("brutessh.exe", "home")) {
         ports++;
