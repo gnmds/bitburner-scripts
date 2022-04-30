@@ -1,7 +1,15 @@
+import * as lib from "lib.js"
+
 export async function main(ns) {
+
     let servers = ns.getPurchasedServers();
 
-    // let currentRam = ns.getServerMaxRam("pserv0");
+    let currentRam = 0;
+
+    if (servers[0] != null) {
+        currentRam = ns.getServerMaxRam(servers[0]);
+    }
+
 
     for (let i = 0; i < servers.length; i++) {
         ns.killall(servers[i]);
@@ -16,12 +24,14 @@ export async function main(ns) {
         }
     }
 
-    if (ram > 0) {
-        for (let i = 0; i < ns.getPurchasedServerLimit(); i++) {
-            let useableThreads = ram / ns.getScriptRam("hack.js", "home");
-            let hostname = ns.purchaseServer("pserv" + i, ram);
-            await ns.scp("hack.js", hostname);
-            ns.exec("hack.js", hostname, useableThreads, "n00dles");
+    if (currentRam < ram) {
+        if (ram > 0) {
+            for (let i = 0; i < ns.getPurchasedServerLimit(); i++) {
+                let useableThreads = ram / ns.getScriptRam("hack.js", "home");
+                let hostname = ns.purchaseServer("pserv" + i, ram);
+                await ns.scp("hack.js", hostname);
+                ns.exec("hack.js", hostname, useableThreads, lib.getServerWithMostMoney(ns));
+            }
         }
     }
 }
