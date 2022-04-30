@@ -1,5 +1,13 @@
  
 export async function main(ns) {
+    
+    let servers = ns.getPurchasedServers();
+
+    let currentRam = 0;
+
+    if (servers[0] != null) {
+        currentRam = ns.getServerMaxRam(servers[0]);
+    }
 
     for (let i = 1; i <= ns.getPurchasedServerMaxRam() + 1; i *= 2) {
 
@@ -16,7 +24,7 @@ export async function main(ns) {
 
         let result = ramResult.concat(" -- ", costResult, " -- ", affordableResult);
 
-        if (i === ns.getServerMaxRam(servers[0])) {
+        if (i === currentRam) {
             result = result.concat(" -- current RAM Size");
         }
 
