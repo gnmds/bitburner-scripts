@@ -1,3 +1,5 @@
+import * as lib from "lib.js"
+
 let servers = ["n00dles", "nectar-net", "CSEC", "foodnstuff", "sigma-cosmetics",
     "joesguns", "hong-fang-tea", "max-hardware", "omega-net", "harakiri-sushi",
     "zer0", "neo-net", "silver-helix", "the-hub", "computek", "zb-institute",
@@ -78,6 +80,6 @@ export async function main(ns) {
         let usableThreads = ns.getServerMaxRam(allBots[i]) / ns.getScriptRam("hack.js", "home");
         ns.killall(allBots[i]);
         await ns.scp("hack.js", allBots[i]);
-        ns.exec("hack.js", allBots[i], usableThreads, serverWithMostMoney);
+        ns.exec("hack.js", allBots[i], usableThreads, lib.getServerWithMostMoney(ns));
     }
 }
