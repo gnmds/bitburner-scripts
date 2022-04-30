@@ -63,9 +63,6 @@ export async function main(ns) {
             } else if (!ns.hasRootAccess(servers[i])) {
                 continue;
             }
-            if (ns.getServerMaxMoney(servers[i]) > ns.getServerMaxMoney(serverWithMostMoney) && ns.getHackingLevel() > ns.getServerRequiredHackingLevel(servers[i])) {
-                serverWithMostMoney = servers[i];
-            }
             if (ns.getServerMaxRam(servers[i]) > ns.getScriptRam("hack.js", "home")) {
                 bots.push(servers[i]);
             }
