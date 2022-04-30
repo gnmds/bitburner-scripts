@@ -14,18 +14,19 @@ function walk(ns, host = `home`) {
 }
 
 export function returnAllServers(ns) {
+    walk(ns);
     return allServers;
 }
 
 export function getServerWithMostMoney(ns) {
     let servers = returnAllServers(ns);
+    let serverWithMostMoney = servers[0];
 
-    let serverWithMostMoney = ``;
-
-    for (let i = 0; i < servers.length; i++) {
+    for (let i = 1; i < servers.length; i++) {
         if (ns.getServerMaxMoney(servers[i]) > ns.getServerMaxMoney(serverWithMostMoney) && ns.getHackingLevel() > ns.getServerRequiredHackingLevel(servers[i])) {
             serverWithMostMoney = servers[i];
         }
     }
+    
     return serverWithMostMoney;
 }
