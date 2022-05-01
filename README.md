@@ -53,3 +53,4 @@ Utility scripts are not meant to be used manually (but partly they can be used m
 
     -   ```
         $ run hack.js [HOST]
+        ```
