@@ -1,0 +1,35 @@
+// Iterator we'll use for our loop
+var i = 0;
+
+// Continuously replace scripts until we've reached the maximum amoiunt of purchased servers
+
+while (i < getPurchasedServerLimit()) {
+	var hostname = "pserv-" + i;
+	var useableThreads = getServerMaxRam(hostname) / 2.7;
+	// If we have the BruteSSH.exe program, use it to open the SSH Port
+	// on the target server
+	if (fileExists("BruteSSH.exe", "home")) {
+		brutessh(hostname);
+	}
+
+	// If we have the FTPCrack.exe program, use it to open the SSH Port
+	// on the target server
+	if (fileExists("FTPCrack.exe", "home")) {
+		ftpcrack(hostname);
+	}
+
+	// If we have the relaySMTP.exe program, use it to open the SSH Port
+	// on the target server
+
+	if (fileExists("relaySMTP.exe", "home")) {
+		relaysmtp(target);
+	}
+
+	// Get root access to target server
+	nuke(hostname);
+
+	killall(hostname);
+	scp("hack.script", hostname);
+	exec("hack.script", hostname, useableThreads);
+	++i;
+}
