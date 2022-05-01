@@ -49,7 +49,7 @@ Utility scripts are not meant to be used manually (but partly they can be used m
 
 - [lib.js](lib.js) - Provides some useful functions, f. e. `returnAllServers()` which returns all servers as an array. Can not be run manually.
 
-- [hack.js](hack.js) - Basically the script shown [here](https://bitburner.readthedocs.io/en/latest/guidesandtips/gettingstartedguideforbeginnerprogrammers.html#creating-our-first-script). Primarily used in `init-bot-network.js` and `buy-servers.js`, but can also be executed manually. Targets `HOST` with `weaken()`, `grow()` and `hack()` calls. Currently `HOST` is a required option.
+- [hack.js](hack.js) - Basically the script shown [here](https://bitburner.readthedocs.io/en/latest/guidesandtips/gettingstartedguideforbeginnerprogrammers.html#creating-our-first-script). Primarily used in `init-bot-network.js` and `buy-servers.js`, but can also be executed manually. Targets `HOST` with `weaken()`, `grow()` and `hack()` calls. Currently `HOST` is a required argument.
 
     -   ```
         $ run hack.js [HOST]
