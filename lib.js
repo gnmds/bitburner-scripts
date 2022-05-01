@@ -23,7 +23,7 @@ export function getServerWithMostMoney(ns) {
     let serverWithMostMoney = servers[0];
 
     for (let i = 1; i < servers.length; i++) {
-        if (ns.getServerMaxMoney(servers[i]) > ns.getServerMaxMoney(serverWithMostMoney) && ns.getHackingLevel() > ns.getServerRequiredHackingLevel(servers[i])) {
+        if ((ns.getServerMaxMoney(servers[i]) > ns.getServerMaxMoney(serverWithMostMoney) && ns.getHackingLevel() > ns.getServerRequiredHackingLevel(servers[i])) && ns.hasRootAccess(servers[i])) {
             serverWithMostMoney = servers[i];
         }
     }
