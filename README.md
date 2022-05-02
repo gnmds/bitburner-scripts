@@ -3,7 +3,7 @@
 This Repo contains scripts I use while playing the Game [Bitburner](https://store.steampowered.com/app/1812820/Bitburner/).
 
 ## Information Scripts
-Information scripts profide you with useful information and are meant to be executed manually.
+Information scripts provide you useful information and are meant to be executed manually.
 
 - [map.js](map.js) - Prints a recursive network tree to the console starting at `HOST`, defaults to `home`. Originally written by [Drakmyth](https://github.com/Drakmyth).
 
