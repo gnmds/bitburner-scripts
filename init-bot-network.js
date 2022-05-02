@@ -53,7 +53,6 @@ export async function main(ns) {
     }
 
     let allBots = bots.concat(ns.getPurchasedServers());
-    ns.tprint
 
     for (let i = 0; i < allBots.length; i++) {
         // calculates the usable threads for the hack.script
